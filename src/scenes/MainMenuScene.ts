@@ -268,10 +268,10 @@ export default class MainMenuScene extends Scene {
     const username = (document.getElementById('signup-username-text') as HTMLInputElement).value;
     const password = (document.getElementById('signup-password-text') as HTMLInputElement).value;
     const repeatPassword = (document.getElementById('signup-repeat-password-text') as HTMLInputElement).value;
-    const country = (document.getElementById('country') as HTMLInputElement).value;
+    const hood = (document.getElementById('hood') as HTMLInputElement).value;
     const characters = JSON.stringify(this.allGameCharacters);
     const signUpData = {
-      username, password, country, characters,
+      username, password, hood, characters,
     };
     if (username.length < 4) {
       Toastify({
@@ -378,15 +378,15 @@ export default class MainMenuScene extends Scene {
     (document.querySelector('#high-scores-modal') as HTMLInputElement).style.display = 'block';
     const response = await fetch('/.netlify/functions/highscores');
     const { highscores } = await response.json();
-    let tableHead = '<tr><th>Rank</th><th>Username</th><th>Scores</th><th>Country</th></tr>';
+    let tableHead = '<tr><th>Rank</th><th>Username</th><th>Scores</th><th>ATL Hood</th></tr>';
     highscores.forEach((player: {
-      username: string; scores: string; country: string;
+      username: string; scores: string; hood: string;
     }, index: number) => {
       tableHead += `<tr>
           <td>${index + 1} </td>
           <td>${player.username}</td>        
           <td>${player.scores}</td>        
-          <td><span class='fi fi-${player.country.toLowerCase()}'></span></td>        
+          <td><span class='fi fi-${player.hood.toLowerCase()}'></span></td>        
       </tr>`;
     });
     (document.getElementById('rank-table') as HTMLInputElement).innerHTML = tableHead;

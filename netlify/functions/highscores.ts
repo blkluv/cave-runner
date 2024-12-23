@@ -11,7 +11,7 @@ const handler: Handler = async (event) => {
     const { DATABASE_URL } = process.env;
     const connection = await mysql.createConnection(DATABASE_URL);
     const [highscores] = await connection.execute(
-      'SELECT username, scores, country FROM players ORDER BY scores DESC LIMIT 10',
+      'SELECT username, scores, hood FROM players ORDER BY scores DESC LIMIT 10',
     );
     return {
       statusCode: 200,

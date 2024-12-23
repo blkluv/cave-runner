@@ -10,7 +10,7 @@ const handler: Handler = async (event) => {
   }
   const params = JSON.parse(event.body!);
   const {
-    username, password, country, characters,
+    username, password, hood, characters,
   }: any = params;
   if (!username || username.length < 3) {
     return {
@@ -24,9 +24,9 @@ const handler: Handler = async (event) => {
     };
   }
 
-  if (!country) {
+  if (!hood) {
     return {
-      statusCode: 400, body: 'Please select a valid country',
+      statusCode: 400, body: 'Please select a valid hood',
     };
   }
 
@@ -44,8 +44,8 @@ const handler: Handler = async (event) => {
     }
     const encryptedPassword = bcrypt.hashSync(password, 10);
     const [createdUser] : any = await connection.execute(
-      'INSERT INTO players( username, password, country, characters) VALUES (?, ?, ?, ?)',
-      [username.toLowerCase(), encryptedPassword, country, characters],
+      'INSERT INTO players( username, password, hood, characters) VALUES (?, ?, ?, ?)',
+      [username.toLowerCase(), encryptedPassword, hood, characters],
     );
     const token = jsonwebtoken.sign(
       {
