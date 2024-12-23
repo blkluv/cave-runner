@@ -26,17 +26,17 @@ export default class MainMenuScene extends Scene {
 
   private dancingAnimation!: AnimationAction;
 
-  private xbot = new Object3D();
+  private rizzbot = new Object3D();
 
-  private jolleen = new Object3D();
+  private witch = new Object3D();
 
-  private peasantGirl = new Object3D();
+  private queenCandy = new Object3D();
 
-  private xbotAnimation!: Object3D;
+  private rizzbotAnimation!: Object3D;
 
-  private jolleenAnimation!: Object3D;
+  private witchAnimation!: Object3D;
 
-  private peasantGirlAnimation!: Object3D;
+  private queenCandyAnimation!: Object3D;
 
   private charactersContainer: Object3D[] = [];
 
@@ -73,48 +73,48 @@ export default class MainMenuScene extends Scene {
 
     this.allGameCharacters = (JSON.parse(localStorage.getItem('allGameCharacters')!));
 
-    this.xbot = await this.fbxLoader.loadAsync(this.allGameCharacters[0].model);
-    this.jolleen = await this.fbxLoader.loadAsync(this.allGameCharacters[1].model);
-    this.peasantGirl = await this.fbxLoader.loadAsync(this.allGameCharacters[2].model);
+    this.rizzbot = await this.fbxLoader.loadAsync(this.allGameCharacters[0].model);
+    this.witch = await this.fbxLoader.loadAsync(this.allGameCharacters[1].model);
+    this.queenCandy = await this.fbxLoader.loadAsync(this.allGameCharacters[2].model);
 
     (document.querySelector('.loading-percentage') as HTMLInputElement).innerHTML = '32%';
     (document.querySelector('#loading-bar') as HTMLProgressElement).value = 32;
 
-    this.xbotAnimation = await this.fbxLoader
+    this.rizzbotAnimation = await this.fbxLoader
       .loadAsync(this.allGameCharacters[0].danceAnimation);
 
     (document.querySelector('.loading-percentage') as HTMLInputElement).innerHTML = '34%';
     (document.querySelector('#loading-bar') as HTMLProgressElement).value = 34;
 
-    this.jolleenAnimation = await this.fbxLoader
+    this.witchAnimation = await this.fbxLoader
       .loadAsync(this.allGameCharacters[1].danceAnimation);
 
     (document.querySelector('.loading-percentage') as HTMLInputElement).innerHTML = '39%';
     (document.querySelector('#loading-bar') as HTMLProgressElement).value = 39;
-    this.peasantGirlAnimation = await this.fbxLoader
+    this.queenCandyAnimation = await this.fbxLoader
       .loadAsync(this.allGameCharacters[2].danceAnimation);
 
     (document.querySelector('.loading-percentage') as HTMLInputElement).innerHTML = '42%';
     (document.querySelector('#loading-bar') as HTMLProgressElement).value = 42;
 
-    this.xbot.visible = false;
-    this.jolleen.visible = false;
-    this.peasantGirl.visible = false;
+    this.rizzbot.visible = false;
+    this.witch.visible = false;
+    this.queenCandy.visible = false;
 
     this.charactersContainer.push(
-      this.xbot,
-      this.jolleen,
-      this.peasantGirl,
+      this.rizzbot,
+      this.witch,
+      this.queenCandy,
     );
     this.animationsContainer.push(
-      this.xbotAnimation,
-      this.jolleenAnimation,
-      this.peasantGirlAnimation,
+      this.rizzbotAnimation,
+      this.witchAnimation,
+      this.queenCandyAnimation,
     );
 
-    this.add(this.xbot);
-    this.add(this.jolleen);
-    this.add(this.peasantGirl);
+    this.add(this.rizzbot);
+    this.add(this.witch);
+    this.add(this.queenCandy);
 
     this.hide();
   }
