@@ -1,5 +1,5 @@
 export default [{
-  name: 'Xbot',
+  name: 'Rizzbot',
   model: '../assets/characters/xbot.fbx',
   isActive: true,
   price: 0,
@@ -11,7 +11,7 @@ export default [{
   jumpAnimation: '../assets/animations/xbot@jumping.fbx',
 },
 {
-  name: 'Jolleen',
+  name: 'Grady Witch',
   model: '../assets/characters/jolleen.fbx',
   isActive: false,
   price: 200,
@@ -23,7 +23,7 @@ export default [{
   jumpAnimation: '../assets/animations/jolleen@jumping.fbx',
 },
 {
-  name: 'Peasant Girl',
+  name: 'Queen Candy',
   model: '../assets/characters/peasant-girl.fbx',
   isActive: false,
   price: 4000,
